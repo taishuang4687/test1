@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>random</title>
+</head>
+<body>
+<script>
+       // x=Math.random();
+       // y=Math.random();
+       // max=x>y?x:y;
+       // document.write("x是"+ x +"y是"+ y +"最大值是"+max);
+    function getMax(x,y) {
+      return  x>y?x:y;
+    }
+    var number1 = Math.random();
+    var number2 = Math.random();
+    var max = getMax(number1,number2);
+    document.write('生成的随机数为' + number1 + number2 + '最大值为' + max);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fabonacci</title>
+</head>
+<body>
+<script>
+
+    function fabonacci(n){
+        if (n1 == 1||n2 == 2){
+            return 1;
+        }
+        var n1 = 1,n2 = 1,sum;
+        for (var i = 2;i < n;i++){
+            sum = n1+n2;
+            n1 = n2;
+            n2 = sum;
+        }
+            return sum;
+    }
+    console.log(fabonacci(8));
+</script>
+</body>
+</html>
