@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>右键菜单</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #menu{
+            width: 120px;
+            border: 2px solid #ccc;
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        #menu li{
+            width: 120px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-top: 1px dashed #ccc;
+            list-style: none;
+        }
+        #menu :hover{
+            background: #999;
+        }
+
+
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li>返回</li>
+    <li>刷新</li>
+    <li>下载</li>
+    <li>复制</li>
+    <li>粘贴</li>
+    <li>删除</li>
+</ul>
+<script>
+    var oMenu = document.getElementById('menu');
+    document.oncontextmenu = function(e){
+        e = e || window.event;
+        oMenu.style.display = 'block';
+        oMenu.style.left = e.clientX + 'px';
+        oMenu.style.top = e.clientY + 'px';
+
+        return false;
+    };
+    document.onclick = function(){
+        oMenu.style.display = 'none';
+    }
+    var aLi = oMenu.getElementsByTagName('li');
+    for(var i = 0; i < aLi.length; i++){
+        aLi[i].onclick = function(){
+            alert(this.innerHTML);
+        };
+    }
+
+
+
+
+</script>
+</body>
+</html>

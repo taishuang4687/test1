@@ -2,47 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>mixed</title>
+    <title>Document</title>
 </head>
 <body>
-<script>
-    //     function f(x) {
-    //          return 4 * Math.pow(x,2) + 3 * x + 2;
-    // }
-    //      console.log(f(5));
-    // var sum = 0;
-    // for (var i = 1;i <= 1000;i++){
-    //     if (i % 3 ==0 && i % 5 ==0 && i % 7 ==0){
-    //         document.write(i + '&nbsp;');
-    //         sum++;
-    //         if(sum % 6 == 0){
-    //             document.write('<br>');
-    //         }
-    //     }
-    // }
-    function prime(n){
-        var flag = false;
-        for(i = 2;i<=Math.sqrt(n);i++){
-            if (n % i == 0){
-                flag = false;
-                break;
-            }else{
-                flag = true;
-            }
+<h1>这是个页面<h1>
+    <!-- <button id='back'>返回</button> -->
+    <script>
+        /*var array = [3,8,9,'weichuang',true];
+        console.log(array[0]);
+        for (var i = 0; i < array.length; i++) {
+            console.log(array[i]);
         }
-        return flag;
-    }
-    var sum = 0;
-        for (var i = 100; i <= 1000; i++) {
-            if (prime(i)){
-            document.write(i + '&nbsp;');
-            sum++;
-            if (sum % 6 == 0){
-                document.write('<br>');
+        var arr = new Array(4);
+        console.log(typeof arr);
+        var person = {
+            name:'taishuang',
+            age:18,
+            code: function(){
+                console.log('coding.....');
             }
+        };
+        console.log(person.age);
+        person.code();
+        var product = [
+            {
+            name: '裤子',
+            price: 200
+        },{
+            name:'iphone',
+            price:8000
+        },{
+            name:'电脑',
+            price: 20000
         }
+    ];
+        document.write('<ul>');
+        for (var i = 0;i < product.length ;i++) {
+        document.write('<li>'+ product[i].name + '</li>');
     }
-</script>
+        document.write('</ul>');
+        // alert('请输入一个数');
+        for(var p in product){
+            console.log(p);
+        }
+    function sum(x,y){//形式参数，形式上的参数，实参，实际的参数
+        var result = x+y;
+        return result;
+    }
+    var a = sum(3,7);
+    console.log(a);
+    var sum = function(x,y){
+        return x+y;
+    }
+    console.log(sum(4,5));
+    var obj = {
+        name:'zhangsan',
+        age:18
+    };
+    var obj2 = obj;
+    obj.name = 'taishuang';
+    console.log(obj2.name);
+    var obj2 = new Object();
+     obj2.name = obj.name;
+     obj2.age = obj.age;
+     obj.name = 'taishunag';
+    console.log(obj2.name);
+    console.log(Math.ceil(Math.random()*36));//0 <= Math.random() < 1
+    var x = Math.random();
+    var y = Math.random();
+    function fn(){
+
+    }
+    生成两个随机数，输出大的数
+    function getMax(x,y){
+        return x > y ? x : y;
+    }
+    var num1 = Math.random();
+    var num2 = Math.random();
+    var max = getMax(num1,num2);
+    document.write('生成的两个随机数为:' + num1 + ',' + num2 +',' + '最大的数为' + max);
+    var i = 0;//定时器，清除定时器
+    var timer = setInterval(function(){
+        console.log(i++);
+        if(i > 5){
+            clearInterval(timer);
+        }
+    },1000);
+    var i = 0;//延迟,轮播图
+    var timer = setTimeout(function(){
+        console.log(i++);
+    },10);
+    clearTimeout(timer);
+    setTimeout(function(){//这是个异步操作，所以需要进入到等待队伍中进行排队，主队伍空闲时在执行此操作
+        console.log(1);
+    },0);
+    console.log(2);
+    console.log(3);
+    var Back = document.getElementById('back');
+    Back.onclick = function(){
+        history.back();
+    };*/
+    </script>
 </body>
 </html>
