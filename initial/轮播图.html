@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #container{
+            width: 837px;
+            height: 300px;
+            margin:150px auto;
+            position: relative;
+        }
+        #img-box{
+            width: 200px;
+            height: 200px;
+        }
+        #img-box img{
+            display:none;
+        }
+        #img-box .select{
+            display:block;
+        }
+        #btn-box{
+            list-style: none;
+            position: absolute;
+            right: 95px;
+            bottom:10px;
+            
+           
+        }
+        #btn-box li{
+            float:left; 
+            width: 20px;
+            height: 20px;
+           background: #ccc;
+           margin-right: 4px;
+           text-align: center;
+           border-radius: 5px;
+           cursor: pointer;
+        }
+        #btn-box .selected{
+            background: #f00;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="img-box">
+            <img class = 'select' src="img/1.jpg" >
+            <img src="img/2.jpg" >
+            <img src="img/3.jpg" >
+            <img src="img/4.jpg" >
+            <img src="img/5.jpg" >
+        </div>
+            <ul id = 'btn-box'>
+                <li class = 'selected'>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+    </div>
+    <script>
+        var aLi = document.getElementsByTagName('li');
+            for(var i = 0;i < aLi.length;i++){
+                aLi[i].index = i;
+                aLi[i].onclick = function(){
+                    for(var j = 0;j < aLi.length;j++){
+                    aLi[j].className = '';
+                }
+                    this.className = 'selected';
+                    aLi[this.index].className = 'selected';
+                };
+            }
+
+    
+    
+    
+    
+    </script>
+</body>
+
+</html>

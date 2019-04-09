@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>右键菜单</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #container{
+        width: 100px;
+        height: 200px;
+        border: 1px solid #ccc;
+        display: none;
+        position:absolute;
+    }
+    #container li{
+        width: 100px;
+        height: 39px;
+        text-align: center;
+        line-height: 39px;
+        list-style: none;
+        border-bottom:1px#ccc dashed;
+        cursor: pointer;
+        
+    }
+    #container li:hover{
+        background:#666;
+    }
+    </style>
+</head>
+<body>
+    <ul id="container">
+        <li>菜单1</li>
+        <li>菜单2</li>
+        <li>菜单3</li>
+        <li>菜单4</li>
+        <li>菜单5</li>
+    </ul>
+    <script>
+       var oContainer = document.getElementById('container');
+       var aLi = oContainer.getElementsByTagName('li');
+       document.oncontextmenu = function(e){
+           e = e || window.event;
+           oContainer.style.display = 'block';
+        //    console.log(e.clientX);
+           oContainer.style.left = e.clientX + 'px';
+           oContainer.style.top = e.clientY + 'px';
+           return false;
+       } 
+       document.onclick = function(){
+           oContainer.style.display = 'none';
+       }
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick = function(){
+                alert(this.innerHTML);
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>
