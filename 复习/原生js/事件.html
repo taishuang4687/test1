@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <button id = 'btn'>按钮</button>
+    <input type="text" id='tai'>
+    <select id = 'sel'>
+        <option value="">林大</option>
+        <option value="">黑大</option>
+        <option value="">理工</option>
+    </select>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oTai = document.getElementById('tai');
+        var oSel = document.getElementById('sel');
+        oBtn.onclick = function(){
+            console.log('15434');
+        }
+        oTai.onfocus = function(){
+            console.log('获取焦点');
+        }
+        oTai.onblur = function(){
+            console.log('失去焦点');
+        }
+        oSel.onchange = function(){
+            console.log('onchange');
+            // console.log(this.innerHTML);
+        }
+        oTai.onkeyup = function(){
+            console.log(oTai.value);
+        }
+    
+    
+    
+    </script>
+</body>
+</html>
