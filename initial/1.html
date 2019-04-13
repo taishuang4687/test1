@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ts = [1,2,3,5,9];
+        let arr=[{
+            product:'手机',
+            region:'华东',
+            sale:[120,60,80,70,90]
+        },{
+            product:'电脑',
+            region:'华硕',
+            sale:[129,90,30,40,70]
+        }
+        ]
+        for(var i=0;i<arr.length;i++){
+            let {product,region,sale:[a,b,c,d,e]} = arr[i];
+            // console.log(product,region,a,b,c,d,e);
+            var arr2 = [product,region,a,b,c,d,e];
+            console.log(arr2);
+        }
+    
+    </script>
+</body>
+</html>
