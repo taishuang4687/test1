@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .active{
+        color: #f00;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model='msg' @keyup='filter()'>
+        <button @click='add()'>add</button>
+        <ul>
+            <li v-for='(obj,index) in showList' :class='{active:obj.isActive}' @click='change(obj)'>{{obj.val}}
+                <button @click='del(index)'>delect</button>
+            </li>
+        </ul>
+    </div>
+    <script src='vue.js'></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                list:[],
+                msg:'',
+                showList:[]
+            },
+            methods:{
+                add(){
+                    this.list.push({val:this.msg,isActive:false});
+                    this.msg='';
+                    this.showList = [...this.list];
+                },
+                del(idx){
+                    this.list.splice(idx,1);
+                    this.showList = [...this.list];
+                },
+                change(obj){
+                    // console.log(111);
+                    obj.isActive=!obj.isActive;
+                },
+                filter(){
+                    var arr = this.list.filter((obj,index)=>{
+                        return obj.val.includes(this.msg);
+                    })
+                    this.showList = arr;
+                }
+            }
+        })
+    
+    
+    
+    
+    </script>
+</body>
+</html>

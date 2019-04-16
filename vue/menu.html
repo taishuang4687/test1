@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 400px;
+            margin: 0 auto;
+        }
+        h1{
+            text-align: center;
+        }
+        li{
+            list-style: none;
+            height: 50px;
+            background: pink;
+            line-height: 50px;
+            margin-bottom: 10px;
+            padding: 10px;
+
+        }
+        span{
+            float: right;
+        }
+        h3{
+            float: right;
+        }
+        .active{
+            background: #ccc;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>services</h1>
+        <ul>
+            <li v-for='obj in list' :class='{active:obj.isActive}' @click='click(obj)'>
+                {{obj.name}}
+                <span>{{obj.price}}</span></li>
+        </ul>
+        <hr>
+        <h3>total:{{total()}}</h3>
+    </div>
+    <script src='vue.js'></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                list:[{
+                    name:'衣服',
+                    price:'123',
+                    isActive:false
+                },{
+                    name:'iphone',
+                    price:1000,
+                    isActive:false
+                },{
+                    name:'减肥药',
+                    price:666,
+                    isActive:false
+                }]
+                
+            },
+            methods:{
+                click(obj){
+                    obj.isActive=!obj.isActive;
+                    // if(obj.isActive){
+                    //     this.total+=parseInt(obj.price);
+                    // }else{
+                    //     this.total-=parseInt(obj.price);
+                    // }
+                },
+                total(){
+                    let count = 0;
+                    this.list.forEach(function(obj,index){
+                        if(obj.isActive){
+                            count+=parseInt(obj.price);
+                        } 
+                    })
+                    return count;     
+                }
+            }
+        })
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
