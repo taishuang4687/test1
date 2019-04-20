@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 属性写在构造函数中，方法写在原型下 -->
+    <script>
+    function Person(name){
+        this.name = name;
+    }
+    Person.prototype.say = function(){
+        console.log('我的名字是'+ this.name);
+    }
+    var p = new Person('taishuang');
+    console.log(p.name);
+    p.say();
+    //子类中，通过父类.call(this),继承属性,但没有继承方法
+    //通过子类.prototype = 父类的实例化对象继承方法
+    function Coder(name){
+        Person.call(this,name)
+    }
+    Coder.prototype =  new Person();
+    Coder.prototype.constructor = Coder;
+    var c = new Coder('lisa');
+    console.log(c.name);
+    c.say();
+    // var obj = {
+    //     name:'taishuang',
+    //     eat:function(){
+    //         console.log(this.name+'正在吃');
+    //     }
+    // }
+    // obj.eat();
+    // var obj1 = {
+    //     name:'zhangsan'
+    // }
+    // obj.eat.call(obj1);
+    // function fn(){
+    //     console.log(this);
+    // }
+    // var p = {
+    //     name:'taishuang'
+    // }
+    // fn();
+    // fn.call(p);
+    //改变this指向，call,apply(数组),bind(不调用)
+
+    
+    </script>
+</body>
+</html>
