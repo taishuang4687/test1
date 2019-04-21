@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #app{
+        width: 300px;
+        margin:0 auto;
+    }
+    h1{
+        text-align: center;
+    }
+    li{
+        width: 300px;
+        height: 50px;
+        background:pink;
+        list-style: none;
+        line-height: 50px;
+        margin-bottom:10px;
+        padding:5px;
+    }
+    span{
+        float:right;
+    }
+    .active{
+        background: #ccc;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>services</h1>
+        <ul>
+            <li @click='change(obj)' :class='{active:obj.isA}' v-for='obj in list'>
+                {{obj.name}}<span>{{obj.price}}</span></li>
+        </ul>
+        <hr>
+        <span>total:{{total()}}</span>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            list:[{
+                name:'衣服',
+                price:123,
+                isA:false
+            },{
+                name:'iphone',
+                price:1000,
+                isA:false
+            },{
+                name:'减肥药',
+                price:6666,
+                isA:false
+            }]
+        },
+        methods:{
+            change(obj){
+                obj.isA = !obj.isA;
+            },
+            total(){
+                let count = 0;
+                this.list.forEach(function(obj){
+                    if(obj.isA){
+                        count+=obj.price;
+                    }
+                })
+                return count;
+            }
+        }
+    })
+    
+    
+    
+    
+    </script>
+</body>
+</html>

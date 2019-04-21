@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>是否需要额外付费设施：<input v-model='isCheck' @click='click()' type="checkbox"></p>
+        <ul v-show='isCheck'>
+            <li v-for='obj in proList'>{{obj.name}}({{obj.price}})<input v-model='list' :value='obj' type="checkbox"></li>
+        </ul>
+        <p>订单费用信息：</p>
+        <ul>
+            <li v-for='item in list'>{{item.name}}({{item.price}})</li>
+        </ul>
+        <p>总金额：<span>{{total}}</span></p>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            proList:[{
+                name:'沙发',
+                price:6666
+            },{
+                name:'床',
+                price:3333
+            },{
+                name:'wifi',
+                price:666
+            }],
+            list:[{
+                name:'群力花园豪华型',
+                price:400
+            }],
+            isCheck:false
+        },
+        methods:{
+            click(){
+                this.list.splice(1);
+            }
+        },
+        computed:{
+            total(){
+                let count = 0;
+                this.list.forEach(function(item){
+                    count+=parseInt(item.price);
+                })
+                return count;
+            }
+        }
+    })
+    
+    
+    </script>
+</body>
+</html>
