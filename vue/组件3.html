@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .container{
+        width: 200px;
+        height: 200px;
+        border:1px solid #000;
+    }
+    .title span{
+        float:right;
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- 父组件向子组件传值用props
+    子组件向父组件传值用$emit("事件名","参数") -->
+    <div id="app">
+        <button @click='login()'>登录</button>
+        <button @click='signin()'>注册</button>
+            <comp name='登录' v-show='isLogin' @close='hide'>
+                <label for="username">用户名</label>
+                <input id='username' type="text" placeholder="请输入用户名">
+                <br>
+                <label for="pwd">密码</label>
+                <input id='pwd' type="text" placeholder="请输入密码">
+                <br><br>
+                <button v-show='isLogin' @click='change()'>登录</button>
+            </comp>
+            <comp name='注册' v-show='isSignin' @close='hide'>
+                <label for="username">用户名</label>
+                <input id='username' type="text" placeholder="请输入用户名">
+                <br>
+                <label for="pwd">密码</label>
+                <input id='pwd' type="text" placeholder="请输入密码">
+                <br>
+                确认密码：<input type="text" placeholder="请确认密码">
+                <br>
+                <button v-show='isSignin'>注册</button>
+            </comp>
+        </div>
+    <template id='temp'>
+        <div>
+            <div class="container">
+            <div class="title">
+                    {{name}}
+                <span @click='$emit("close",name)'>[X]</span>
+                <hr>
+            </div>
+            <div class="content">
+                <slot></slot>
+            </div>
+        </div>
+        </div>
+        
+    </template>
+    <script src='vue.js'></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                isLogin:false,
+                isSignin:false
+            },
+            methods:{
+                login(){
+                    this.isLogin=true;
+                    this.isSignin=false;
+                },
+                signin(){
+                    this.isSignin=true;
+                    this.isLogin=false;
+                },
+                hide(title){
+                    this.isLogin=false;
+                    this.isSignin=false;
+                    console.log(title);
+                }
+            },
+            components:{
+                'comp':{
+                    template:'#temp',
+                    props:['name']
+
+                }
+            }
+        })
+    
+    
+    
+    </script>
+</body>
+</html>
