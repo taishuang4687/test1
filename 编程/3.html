@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Aclass(name,age){
+        this.name = name;
+        this.age = age;
+        Aclass.prototype.say = function(){
+            console.log(name,age,'i am eating');
+        }
+    }
+    var a = new Aclass('taishuang',20);
+    a.say();
+    function Bclass(school,name,age){
+        this.school = school;
+        Aclass.call(name,age);
+        Bclass.prototype.eat = function(){
+            console.log(school,name,age);
+        }
+    }
+    var b = new Bclass('heilongjiang','zhangsan',18);
+    Bclass.prototype = new Aclass();
+    Bclass.prototype.constructor = Bclass;
+    b.eat();
+    
+    </script>
+</body>
+</html>
