@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    /* .list{
+        float: left;
+    } */
+    .list li{
+        list-style: none;
+        width: 100px;
+        height: 30px;
+        background: #f00;
+        margin-right:5px;
+        float: left;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        cursor: pointer;
+    }
+    .list li:hover{
+        background: #ccc;
+        /* display: block; */
+    }
+    .submenu li{
+        background: pink;
+        display: none;
+    }
+    .submenu li:hover{
+        background: #cfaa39;
+    }
+    .list li:hover .submenu li{
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul class='list'>
+            <li>link One</li>
+            <li>link Two</li>
+            <li class="select">link Three
+                <ul class="submenu">
+                    <li>001</li>
+                    <li>002</li>
+                    <li>003</li>
+                    <li>004</li>
+                </ul>
+            </li>
+            <li>link Four</li>
+        </ul>
+    </div>
+</body>
+</html>
