@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #div1{
+        width: 200px;
+        height: 200px;
+        background:pink;
+        text-align: center;
+        line-height: 200px;
+        position: absolute;
+    }
+    </style>
+</head>
+<body>
+    <div id="div1">点击滑动</div>
+    <script>
+    var oDiv1 = document.getElementById('div1');
+    oDiv1.onmousedown = function(e){
+        var X = e.clientX-oDiv1.offsetLeft;
+        var Y = e.clientY-oDiv1.offsetTop;
+        document.onmousemove = function(e){
+            oDiv1.style.left = e.clientX - X +'px';
+            oDiv1.style.top = e.clientY - Y +'px';
+        }
+        oDiv1.onmouseup = function(){
+        document.onmousemove = null;
+    }
+    }
+    
+    </script>
+</body>
+</html>
