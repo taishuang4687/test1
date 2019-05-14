@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-    a{
-        text-decoration:line-through;
-    }
-    
-    
-    </style>
 </head>
 <body>
-    <a href="http://www.baidu.com">百度</a>
+    <script>
+    function Person(name){
+        this.name=name;
+        this.showName = function(){
+            console.log(this.name);
+        }
+    }
+    var ts = new Person('taishuang');
+    var tt = new Person('taitai');
+    ts.showName();
+    tt.showName();
+    // console.log(ts.prototype);
+    // console.log(Person.prototype);
+    // console.log(Person.prototype.constructor);
+    </script>
 </body>
 </html>
