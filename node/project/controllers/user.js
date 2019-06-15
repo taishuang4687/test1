@@ -14,25 +14,23 @@ exports.do_reg = function(req,res,next){
     var pass = req.body.pass;
     async.waterfall([
         function(callback){
+            User_model.checkName(name,function(err,data){
+                callback(null,data);
+            })
+        },
+        function(data,callback){
+            if(data.length>0){
+                res.render('/reg');
+            }else{
+                User_model.insert_data(name,pass,function(err,data){
+                    if(data.affectedRows>0){
+                        res.redirect('/login');
+                    }
+                });
+            }
             callback(null,'one','two');
         },
-        function(arg1,arg2,callback){
-            callback(null,'three');
-        }
     ],function(err,result){
-
+        console.log(result);
     });
-    User_model.checkName(name,function(err,data){
-         console.log(data);
-         if(data.length>0){
-             res.redirect('/login');
-         }else{
-            User_model.insert_data(name,pass,function(err,data){
-                if(data.affectedRows>0){
-                    res.redirect('/login');
-                }
-            });
-         }
-    })
-    
 }
