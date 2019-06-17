@@ -15,7 +15,7 @@ http.createServer(function(req,res){
     }
 }).listen(3000);
 function goIndex(res){
-    var pathname = __dirname + '/static/' + url.parse('index.html').pathname;
+    var pathname = __dirname + '/static/' + url.parse("index.html").pathname;
     var readfile = fs.readFileSync(pathname,'utf-8');
     res.writeHead(200,{'content-type':'text/html'});
     res.end(readfile);
