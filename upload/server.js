@@ -35,7 +35,7 @@ function goUpload(req,res){
             if(err) throw err;
             res.writeHead(200, {'content-type': 'text/plain'});
             res.end('文件上传成功');
-        })
+        });
       
     //   res.write('received upload:\n\n');
     //   res.end(util.inspect({fields: fields, files: files}));
