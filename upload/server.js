@@ -20,27 +20,16 @@ http.createServer(function(req,res){
 }).listen(3000);
 console.log('server start port 3000');
 function goIndex(res){
-    var pathname=path.parse(__dirname).dir+'/static/'+url.parse('index.html').pathname;
+    var pathname=__dirname+'/static/'+url.parse('index.html').pathname;
     var readfile=fs.readFileSync(pathname,'utf-8');
     res.writeHead(200,{'Content-type':'text/html'});
     res.end(readfile);
 };
 function goUpload(req,res){
     var form = new formidable.IncomingForm();
-    form.uploadDir = __dirname + '/uploads/';
-    form.parse(req,function(err,fields,files){
-        var oldurl=files.sfile.path;
-        var newurl=__dirname+'/uploads/'+files.sfile.name;
-        fs.rename(oldurl,newurl,function(err){
-            if(err) throw err;
-            res.writeHead(200,{'content-type':'text/plain'});
-            res.end('成功上传文件');
-        })
-        // console.log(files.sfile.path);
-        // console.log(files.sfile.name);
-        // res.writeHead(200,{'content-type':'text/plain'});
-        // res.write('received upload:\n\n');
-        // res.end(util.inspect({fields:fields,files:files}));
+    form.parse(req, function(err, fields, files) {
+      res.writeHead(200, {'content-type': 'text/plain'});
+      res.write('received upload:\n\n');
+      res.end(util.inspect({fields: fields, files: files}));
     });
-    return ;
 }
