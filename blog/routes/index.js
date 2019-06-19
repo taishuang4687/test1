@@ -13,11 +13,17 @@ router.post('/parse',function(req,res,next){
   form.parse(req,function(err,fields,files){
     var oldurl=files.sfile.path;
     var newurl=path.parse(__dirname).dir+'/upload/'+files.sfile.name;
-    fs.rename(oldurl,newurl,function(err){
-      if(err) throw err;
-      res.writeHead(200,{'content-type':'text/plain'});
-      res.end('文件上传成功');
-    })
+    var readStream=fs.createReadStream(oldurl);
+    var writeStream=fs.createWriteStream(newurl);
+    readStream.pipe(writeStream);
+    readStream.on('end',function(){
+      fs.unlinkSync(oldurl);
+    });
+    // fs.rename(oldurl,newurl,function(err){
+    //   if(err) throw err;
+    //   res.writeHead(200,{'content-type':'text/plain'});
+    //   res.end('文件上传成功');
+    // })
   });
   return ;
 })

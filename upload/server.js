@@ -37,8 +37,7 @@ function goUpload(req,res){
             res.end('文件上传成功');
         });
       
-    //   res.write('received upload:\n\n');
-    //   res.end(util.inspect({fields: fields, files: files}));
+    
     });
     return ;
 }
