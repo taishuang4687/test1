@@ -1,8 +1,10 @@
+/* header头部开始 */
 #header{
     height: 32px;
     background: #f2f2f2;
     font-size:12px;
     line-height: 32px;
+    border-bottom: 1px solid #eee;
     font-family: "Microsoft YaHei", tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
 }
 #login-info a,#login-info span,#quick-menu a{
@@ -23,8 +25,9 @@
 #quick-menu .menu{
     float: left;
     padding: 0 14px;
+    cursor: pointer;
 }
-#quick-menu .menu:hover a{
+#quick-menu .menu:hover >a{
     color: #ff0036;
 }
 #quick-menu .iconfont{
@@ -33,11 +36,20 @@
 }
 #quick-menu .triangle{
     position: relative;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 0 1px;
+    height: 33px;
 }
 #quick-menu .triangle:hover{
     background: #fff;
+    border-color: #eee;
 }
-#quick-menu .arrow{
+#quick-menu .triangle:hover > a{
+    text-decoration: underline;
+}
+#quick-menu .triangle::after{
+    content: '';
     width: 0;
     height: 0;
     border-style: solid;
@@ -47,4 +59,66 @@
     top: 50%;
     margin-top: -1.5px;
     right: 4px;
+}
+#quick-menu .triangle:hover::after{
+    transform: rotate(180deg);
+    transition: transform .5s ease;
+    transform-origin: 3px 1.5px;
+}
+#quick-menu .triangle:hover .submenu{
+    display: block;
+}
+#quick-menu .submenu{
+    width: 74px;
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+    border-color: #eee;
+    position: absolute;
+    top: 33px;
+    left: -1px;
+    padding: 0 10px;
+    display: none;
+} 
+#quick-menu .submenu a:hover{
+    color: #ff0036;
+    text-decoration: underline;
+}
+#quick-menu .phone{
+    position: relative;
+}
+#quick-menu .qr-code{
+    width: 175px;
+    height: 227px;
+    background: #fff;
+    position: absolute;
+    top: 30px;
+    left: -43px;
+    box-shadow: 0 0 5px #aaa;
+    display: none;
+}
+#quick-menu .phone:hover .qr-code{
+    display: block;
+}
+#quick-menu .qr-code::after{
+    content: '';
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    top: -8px;
+    left: 85px ;
+}
+/* header头部结束 */
+/* side-bar右侧导航开始 */
+#side-bar{
+    width: 35px;
+    background: #000;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+#side-bar .icon-shouji01{
+    color: #ff0036;
+    margin-top: 400px;
 }
