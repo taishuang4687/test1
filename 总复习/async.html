@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    async function firstReq(){
+        return new Promise(function(resolve){
+            setTimeout(function(){
+                resolve();
+            },1000)
+        })
+    }
+    async function asyncPro(){
+        console.log('请求开始');
+        await firstReq();
+        console.log('请求结束');
+    }
+    asyncPro();
+
+
+</script>  
+</body>
+</html>
