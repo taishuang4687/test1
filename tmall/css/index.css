@@ -120,5 +120,92 @@
 }
 #side-bar .icon-shouji01{
     color: #ff0036;
-    margin-top: 400px;
+    float: left;
+    margin-top: 200px;
+    font-size: 40px;
+}
+#side-bar .vip{
+    width: 90px;
+    height: 40px;
+    background: #999;
+    position: absolute;
+    top: 200px;
+    left: -180px;
+    text-align: center;
+    line-height: 40px;
+    transition: opacity .3s linear, left .3s linear;
+    opacity: 0;
+    visibility: hidden;
+}
+#side-bar .content:hover .vip{
+    left: -90px;
+    visibility: visible;
+    opacity: 1;
+}
+#side-bar .arrow{
+    width: 15px;
+    height: 15px;
+    background: #999;
+    position: absolute;
+    right: -8px;
+    top: 12px;
+    transform: rotate(45deg);
+}
+/* side-bar结束 */
+/* logo-search开始 */
+#logo-search .logo,#logo-search .search{
+    float: left;
+}
+#logo-search .wrapper{
+     position: relative;
+}
+#logo-search .search{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#logo-search .search-form{
+    width: 623px;
+    height: 36px;
+    border: 2px #ff0036 solid;
+}
+#logo-search .search-input{
+    width: 483px;
+    height: 100%;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    text-indent: 10px;
+}
+#logo-search .search-button{
+    width: 132px;
+    height: 100%;
+    background: #ff0036;
+    color: #fff;
+    border: none;
+    float: right;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+#logo-search .hot-query{
+    margin-top: 10px;
+}
+#logo-search .hot-query li{
+    float: left;
+    border-right: 1px solid #999;
+    padding: 0 12px;
+}
+#logo-search .hot-query a{
+    color: #999;
+    font-size: 14px;
+}
+#logo-search .hot-query .first{
+    padding-left: 0;
+}
+#logo-search .hot-query .last{
+    border-right: none;
+}
+#logo-search .hot-query .hot-query-highlight a{
+    color: #ff0036;
 }

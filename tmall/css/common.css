@@ -17,11 +17,11 @@ a {
     margin: 0 auto;
 }
 
-/* .clearfix::after{
+.clearfix::after{
     content: '';
     display: block;
     clear: both;
-} */
+}
 
 
 
