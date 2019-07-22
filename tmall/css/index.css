@@ -159,7 +159,7 @@
 #logo-search .logo,#logo-search .search{
     float: left;
 }
-#logo-search{
+#logo-search .wrapper{
      position: relative;
 }
 #logo-search .search{
@@ -219,7 +219,9 @@
     line-height: 35px;
 }
 #main-nav .wrapper{
-    margin-left: 200px;
+    margin-left: 210px;
+    width: 1020px;
+    overflow: hidden;
 }
 #main-nav li{
     float: left;
@@ -230,6 +232,59 @@
 }
 #main-nav img{
     width: 100px;
-    height: 35px;
+    height: 30px;
     margin-top: 3px;
 }
+/* main-nav结束 */
+/* banner开始 */
+#banner{
+    background: #fd5957;
+}
+#banner .wrapper{
+    height: 500px;
+    background: url(../imgs/banner01.webp) no-repeat;
+    position: relative;
+}
+#banner .banner-nav{
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#banner .banner-nav li{
+    width: 25px;
+    height: 5px;
+    background: #000;
+    opacity: .3;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+}
+#banner .banner-nav .select{
+    background: #fff;
+}
+#banner .product{
+    background-color: rgb(0, 0, 0, .5);
+    width: 200px;
+    height: 500px;
+    position: absolute;
+    top: -36px;
+}
+#banner .product .category{
+    height: 36px;
+    background: #ff0036;
+    line-height: 36px;
+}
+#banner .product a{
+    color: #fff;
+}
+#banner .product .type{
+    padding: 5px 0;
+}
+#banner .product .type:hover{
+    background: #fff;
+}
+#banner .product .type:hover a{
+    color: #ff0036;
+}
+/* banner结束 */
