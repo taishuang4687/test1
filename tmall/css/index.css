@@ -78,6 +78,8 @@
     left: -1px;
     padding: 0 10px;
     display: none;
+    z-index: 1;
+    background: #fff;
 } 
 #quick-menu .submenu a:hover{
     color: #ff0036;
@@ -95,6 +97,7 @@
     left: -43px;
     box-shadow: 0 0 5px #aaa;
     display: none;
+    z-index: 1;
 }
 #quick-menu .phone:hover .qr-code{
     display: block;
@@ -156,7 +159,7 @@
 #logo-search .logo,#logo-search .search{
     float: left;
 }
-#logo-search .wrapper{
+#logo-search{
      position: relative;
 }
 #logo-search .search{
@@ -208,4 +211,25 @@
 }
 #logo-search .hot-query .hot-query-highlight a{
     color: #ff0036;
+}
+/* logo-search结束 */
+/* main-nav开始 */
+#main-nav{
+    height: 35px;
+    line-height: 35px;
+}
+#main-nav .wrapper{
+    margin-left: 200px;
+}
+#main-nav li{
+    float: left;
+    padding: 0 8px;
+}
+#main-nav li a{
+    color: #000;
+}
+#main-nav img{
+    width: 100px;
+    height: 35px;
+    margin-top: 3px;
 }
