@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">hahahhaha</div>
+    <script>
+        function $(str) {
+            return new Jquery(str);
+        }
+        function Jquery(str) {
+            this.eles = [];
+            var sel = str.charAt(0);
+            var name = str.substr(1);
+            if (sel == '#') {
+                this.eles.push(document.getElementById(name));
+            } else if (sel == '.') {
+                this.eles = [...document.getElementsByClassName(name)];
+            }
+            // console.log(this.eles);
+        }
+        //属性写在构造函数中，方法写在原型下
+        Jquery.prototype.css = function (arg1, arg2) {
+            this.eles.map(function (ele, index) {
+                if (typeof arg1 == 'string' && typeof arg2 == 'string') {
+                    ele.style[arg1] = arg2;
+                }else if(typeof arg1 == 'object' && arg2 == undefined){
+                    for(key in arg1){
+                            ele.style[key] = arg1[key];
+                        }
+                }
+            })
+            return this;//返回Jquery对象，才能进行链式操作
+        }
+        Jquery.prototype.on = function(evenName,handle){
+            this.eles.map(function(ele,index){
+                ele.addEventListener(evenName,handle);
+            })
+        }
+        // $('#div1').css('background', 'red');
+        $('#div1').css({
+            background:'red',
+            height:'200px'
+        }).on('click',function(){
+            console.log('hahhahahaha');
+        })
+
+    </script>
+</body>
+
+</html>
