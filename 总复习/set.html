@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // set数组去重
+    // var arr = [1,2,3,5,2,1,6,8,4,3,5];
+    // var arr1 = new Set(arr);
+    // var arr2 = [...arr];//将类数组转换成数组
+    // var arr2 = Array.from(arr);
+    // console.log(arr2);
+    // let arr = [1,2,3,2,1,4,5,4,6];
+    // let arr1 = new Set(arr);
+    // let arr2 = [...arr1];
+    // let arr3 = Array.from(arr1);
+    // console.log(arr3);
+    //Array.of()可将一串数变为数组
+    // let string = Array.of(4,6,8,7,5,2,1);
+    // console.log(string);
+    //Array.from()可将对象（需要是json格式）变为数组，但是要写length
+    // let obj = {
+    //     0:'0',
+    //     1:'1',
+    //     length:2
+    // }
+    // let obj1 = Array.from(obj);
+    // console.log(obj1);
+    let arr = [1,2,3,2,1,4,5,6,5];
+    let arr1 = new Set(arr);
+    // arr1.add(9);
+    // arr1.delete(1);
+    // console.log(arr1.has(2));
+    // console.log(arr1.size);
+    arr1.clear();
+    console.log(arr1);
+    </script>
+</body>
+</html>
