@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function EventEmit(){
+            var obj = {};
+            var eventNames=[];
+            var pid = 0;
+            function on(eventName,callback){
+                if(eventName in obj){
+                    obj[eventName].callbacks.push(callback);
+                }else{
+                    obj[eventName] = {
+                        pid:pid++,
+                        callbacks:[]
+                    }
+                    obj[eventName].callbacks.push(callback);
+                    eventNames.push(eventName);
+                }
+            }
+            function trigger(eventName){
+                for(var i in obj){
+                    if(i==eventName){
+                        obj[eventName].callbacks.map(function(callback){
+                            callback();
+                        })
+                    }
+                }
+            }
+            return {
+                on:on,
+                trigger:trigger
+            }
+        }
+        var sub = new EventEmit();
+        sub.on('test',function(){
+            console.log('work');
+        })
+        sub.trigger('test');
+    </script>
+</body>
+</html>
