@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var a = 10,b = 2;
+    var count = 0;
+    function num(a,b){
+        if(a%2==0){
+            var c = a/2;
+            var d = a/2;
+            for(i=0;i<a.length;i++){
+                c++;
+                d--;
+                if(c-d==b){
+                    num(c,b);
+                    num(d,b);
+                }else{
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    console.log(num(a,b));
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function LinkedList() {
+            function Node(element) {
+                this.element = element;
+                this.next = null;
+            }
+            var head = null;
+            var length = 0;
+            //向链表尾部添加一个元素
+            this.append = function (element) {
+                var node = new Node(element);
+                var current;
+                if (head === null) {
+                    head = node;
+                } else {
+                    current = head;
+                    while (current.next) {
+                        current = current.next;
+                    }
+                    current.next = node;
+                }
+                length++;
+            }
+            //从链表中移除指定位置元素,移除成功返回元素的值
+            this.removeAt = function (position) {
+                if (position > -1 && position < length) {//值没有越界
+                    var current = head;
+                    var previous, index = 0;
+                    if (position === 0) {//当移除的是第一项时
+                        head = current.next;
+                    } else {
+                        while (index++ < position) {
+                            previous = current;
+                            current = current.next;
+                        }
+                        previous.next = current.next;
+                    }
+                    length--;
+                    return current.element;
+                } else {
+                    return null;
+                }
+            }
+            //在链表任意一个位置插入元素
+            this.insert = function (position, element) {
+                if (position >= 0 && position <= length) {//检查越界值
+                    var node = new Node(element),
+                        current = head,
+                        previous, index = 0;
+                    if (position === 0) {
+                        node.next = head;
+                        head = node;
+                    } else {
+                        while (index++ < position) {
+                            previous = current;
+                            current = current.next;
+                        }
+                        node.next = current;//在previous与current之间插入node
+                        previous.next = node;
+                    }
+                    length++;
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            //把链表内的值转换成字符串，即输出
+            this.toString = function () {
+                var current = head,
+                    string = '';
+                while (current) {
+                    string += current.element + '';
+                    current += current.next;
+                }
+                return string;
+            }
+            //在链表中查找元素并返回索引
+            this.indexOf = function (element) {
+                var current = head,
+                    index = 0;
+                while (current) {
+                    if (element === current.element) {
+                        return index;
+                    }
+                    index++;
+                    current = current.next;
+                }
+                return -1;
+            }
+            //在链表中移除指定元素，上一个是指定位置
+            this.remove = function (element) {
+                var index = this.indexOf(element);
+                return this.removeAt(index);
+            }
+            //判断链表是否为空
+            this.isEmpty = function () {
+                return length === 0;
+            }
+            //获取链表长度
+            this.size = function () {
+                return length;
+            }
+            //获取链表第一个结点
+            this.getHead = function () {
+                return head;
+            }
+        }
+        let list = new LinkedList()
+        list.append(1)
+        list.append(2)
+        console.log(list.toString()); // 1 2
+
+
+
+
+
+    </script>
+</body>
+
+</html>
