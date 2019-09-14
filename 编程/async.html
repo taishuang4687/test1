@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    async function firstReq(){
+        return new Promise(function(resolve){
+            setTimeout(function(){
+                resolve();//成功后调用
+            },2000)
+        })
+    }
+    async function asyncPrint(){
+        console.log('开始');
+        await firstReq();//返回一个Promise对象，等待的是异步请求
+        console.log('第一个请求完成');
+    }
+    asyncPrint();
+    
+    
+    
+    </script>
+</body>
+</html>

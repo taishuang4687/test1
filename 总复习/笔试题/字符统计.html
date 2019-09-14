@@ -16,24 +16,19 @@
                 var charAt = str.charAt(i);
                 if(obj[charAt]){
                     obj[charAt]++;
-                    // console.log(obj[charAt]);
                 }else{
                     obj[charAt] = 1;
                 }
             }
             for(let i in obj){
                 if(obj[i]>max){
-                    // console.log(obj[i]);
                     max = obj[i];
                     maxStr = i;
                 }
             }
-            return maxStr+','+'出现'+max+'次';
+            return maxStr+' '+max;
         }
-        console.log(total('asddfgdfwwqeweqwezczxcsdfgdgd'));
-    // var str = 'hawoshitaishuang';
-    // console.log(str.charAt(3));
-    
+        console.log(total('success'));
     </script>
 </body>
 </html>
