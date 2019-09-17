@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Parent{
+        constructor(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        say(){
+            console.log('i am parent',this.name,this.age);
+        }
+        static tai(){
+            console.log('one');
+        }
+    }    
+    var p = new Parent('taifengwei',43);
+    p.say();
+    class Child extends Parent{
+        constructor(name,age){
+            super(name,age);
+        }
+        haha(){
+            console.log('i am children');
+        }
+    }
+    var c = new Child('taishuang',23);
+    c.say();
+    </script>
+</body>
+</html>
