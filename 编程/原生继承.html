@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Parent(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Parent.prototype.say = function(){
+        console.log('i am parent',this.name,this.age);
+    }
+    var p = new Parent('taiwei',43);
+    p.say();
+    function Child(name,age){
+        // this.name = name;
+        // this.age = age;
+        Parent.call(this,name,age);
+    }
+    Child.prototype = new Parent();
+    Child.prototype.constructor = Child;
+    var c = new Child('taishuang',23);
+    c.say();
+    </script>
+</body>
+</html>
