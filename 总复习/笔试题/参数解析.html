@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function getParams(str){
+        var a = str.indexOf('?');
+        var b = str.substring(a+1);
+        var arr = b.split('&');
+        var obj = {};
+        for(var i = 0;i<arr.length;i++){
+            var newArr = arr[i].split('=');
+            obj[newArr[0]] = newArr[1];
+        }
+        return obj;
+    }
+    let str =  'http://www.xxx.com?a=1&b=2&c=3';
+        console.log(getParams(str));
+    
+    
+    </script>
+</body>
+</html>
