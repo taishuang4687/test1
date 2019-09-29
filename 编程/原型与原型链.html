@@ -8,27 +8,39 @@
 </head>
 <body>
     <script>
-        //创建构造函数
-        function Word(words){
-            this.words = words;
-        }
-        //创建原型
-        Word.prototype = {
-            alert(){
-                alert(this.words);
-            }
-        }
-        //创建实例
-        var w = new Word('hello world');
-        w.print = function(){
-            console.log(this.words);
-            console.log(this);
-        }
-        w.print();
-        w.alert();
-        console.log(w.__proto__ === Word.prototype);
+        // //创建构造函数
+        // function Word(words){
+        //     this.words = words;
+        // }
+        // //创建原型
+        // Word.prototype = {
+        //     alert(){
+        //         alert(this.words);
+        //     }
+        // }
+        // //创建实例
+        // var w = new Word('hello world');
+        // w.print = function(){
+        //     console.log(this.words);
+        //     console.log(this);
+        // }
+        // w.print();
+        // w.alert();
+        // console.log(w.__proto__ === Word.prototype);
         //当调用某种方法时或者查找某种属性时，首先会在自身调用和查找，如果自身并没有该属性和方法，则会去他的_proto_属性中调用查找
         //也就是他的构造函数中的prototype中查找调用，因为实例继承构造函数的方法
+        Function.prototype.a = 'a';
+        Object.prototype.b = 'b';
+        function Person(){
+
+        }
+        console.log(Person);
+        let p = new Person();//p是实例化对象
+        console.log(p);
+        console.log(p.a);
+        console.log(p.b);
+        console.log(Person.__proto__.constructor);
+        console.log(Person.__proto__.__proto__);
     
     </script>
 </body>
